@@ -1,0 +1,101 @@
+/* Reset some default styles for better consistency */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: flex-start; /* Align items to the top */
+    min-height: 100vh; /* Ensure full viewport height */
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    padding: 20px; /* Add some padding around the content */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+/* Counter */
+#counter {
+    font-size: 3em; /* Use em for font size */
+    width: 100%;
+    text-align: center;
+    color: rgb(22, 22, 22);
+    margin-bottom: 20px; /* Add some spacing below the counter */
+}
+
+/* Coin Button */
+#coinButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+#coinImage {
+    width: 20vw; /* Use viewport width for coin image size */
+    max-width: 150px; /* Limit the maximum size */
+    height: auto;
+    animation: jiggle 1s infinite; /* Apply the jiggle animation */
+}
+
+@keyframes jiggle {
+    0% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+    100% { transform: rotate(-5deg); }
+}
+
+/* Container */
+.container {
+    width: 90%;           /* Use percentage for width */
+    max-width: 500px;      /* Limit the maximum width */
+    margin: 0 auto;       /* Center the container horizontally */
+    position: relative;   /* Needed for absolute positioning */
+    padding: 20px;        /* Add padding */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+/* Energy Bar */
+#energyBar {
+    width: 100%;       /* Fill the container width */
+    max-width: 300px;  /* Limit the maximum width */
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 20px;    /* Add margin to separate from other content */
+    position: relative; /* Position relative for absolute positioning inside */
+}
+
+#energyLevel {
+    height: 30px;
+    background-color: #76c7c0; /* Цвет шкалы энергии */
+    width: 100%;                /* Initial value */
+    transition: width 0.3s;    /* Smooth transition */
+    position: relative;
+}
+
+#energyText {
+    position: absolute;
+    width: 100%;
+    text-align: left;
+    color: white;    /* Цвет текста */
+    font-weight: bold;
+    top: 50%;         /* Vertically center */
+    transform: translateY(-50%); /* Adjust for the height of the text */
+    padding-left: 5px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Adjust base font size for smaller screens */
+    }
+
+    #coinImage {
+        width: 30vw;     /* Make the coin image larger on small screens */
+        max-width: 200px; /* Increased maximum size */
+    }
+
+    /* ... any other adjustments you need for small screens ... */
+}

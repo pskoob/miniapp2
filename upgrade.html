@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>My Clicker Game</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="upgrade.css">
+    </head>
+<body>
+
+    <div class="upgrade-container">
+        <h1>Upgrade Your Cards!</h1>
+        <p>Clicks Available: <span id="currentClicks">0</span></p>
+
+        <div class="card card-interactive" id="card1">
+            <div class="card-content">
+                <h2>Click Booster</h2>
+                <p id="description">Power Click</p>
+                <p>Maxos per click: <span id="currentBonus">1</span></p>
+                <p>Upgrade Cost: <span id="upgradeCostDisplay">5</span></p>
+                <button onclick="upgradeCard('card1')">Upgrade</button>
+            </div>
+        </div>
+
+        <!-- New Card -->
+        <div class="card card-interactive" id="card2">
+            <div class="card-content">
+                <h2>Auto Clicker</h2>
+                <p>Generates Maxos Over Time</p>
+                <p>Cost: <span id="autoClickerCost">20</span></p>
+                <button onclick="purchaseAutoClicker()">Purchase</button>
+            </div>
+        </div>
+
+        <button id="backButton">Back to Game</button>
+    </div>
+
+    <script src="upgrade.js"></script>
+</body>
+</html>
