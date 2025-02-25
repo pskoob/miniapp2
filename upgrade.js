@@ -19,7 +19,7 @@ function getAutoClickerCost() {
 }
 
 // Back to game button functionality
-document.getElementById("backButton").addEventListener("click", function() {
+document.getElementById("miningButton").addEventListener("click", function() {
     window.location.href = "index.html";
 });
 function updateUpgradeView() {
@@ -140,3 +140,4 @@ initialValues();
 
 //Update every X time
 setInterval(addCoins, 1000);
+

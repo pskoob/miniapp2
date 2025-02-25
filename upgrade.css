@@ -125,3 +125,35 @@ body {
         padding: 15px;    /* Increase button padding */
     }
 }
+.bottom-button {
+    position: fixed; /* Fix the button to the viewport */
+    bottom: 0;      /* Place it at the bottom */
+    left: 10;       /* Align to the left */
+    width: 30%;     /* Make it full width */
+    text-align: center; /* Center the text */
+    padding: 10px;    /* Add some padding */
+    background-color: #4CAF50; /* Example background color */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.mining-button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 20%;
+    text-align: center;
+    padding: 30px; /* This padding will affect the image size */
+    background-color: #f7f7f700; /* Transparent background */
+    color: white;
+    border: none;
+    cursor: pointer;
+
+    background-image: url("mining.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    /* Make the image cover the entire button */
+    background-size: cover;
+}

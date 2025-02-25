@@ -2,7 +2,7 @@ let count = 0;
 let energy = 100;
 const maxEnergy = 100;
 const energyRecoveryRate = 1;
-const recoveryInterval = 1000;
+const recoveryInterval = 2000;
 
 const counterDisplay = document.getElementById('counterDisplay');
 const energyLevel = document.getElementById('energyLevel');

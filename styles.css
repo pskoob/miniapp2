@@ -1,5 +1,6 @@
 /* Reset some default styles for better consistency */
 body, h1, h2, h3, p, ul, li {
+    touch-action: manipulation;
     margin: 0;
     padding: 0;
 }
@@ -14,10 +15,13 @@ body {
     font-family: Arial, sans-serif;
     padding: 20px; /* Add some padding around the content */
     box-sizing: border-box; /* Include padding in the element's total width and height */
+
+    /* ADDED to prevent zooming */
+    touch-action: manipulation; /* Prevents all zooming and panning */
 }
 
 /* Counter */
-#counter {
+#counterDisplay { /* Corrected ID to match HTML */
     font-size: 3em; /* Use em for font size */
     width: 100%;
     text-align: center;
@@ -26,7 +30,8 @@ body {
 }
 
 /* Coin Button */
-#coinButton {
+#coinButton, .card button {
+    touch-action: none; /* Optional: Disable touch actions on specific elements */
     background: none;
     border: none;
     cursor: pointer;
@@ -98,4 +103,36 @@ body {
     }
 
     /* ... any other adjustments you need for small screens ... */
+}
+.bottom-button {
+    position: fixed; /* Fix the button to the viewport */
+    bottom: 0;      /* Place it at the bottom */
+    left: 10;       /* Align to the left */
+    width: 30%;     /* Make it full width */
+    text-align: center; /* Center the text */
+    padding: 10px;    /* Add some padding */
+    background-color: #4CAF50; /* Example background color */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.mining-button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 20%;
+    text-align: center;
+    padding: 30px; /* This padding will affect the image size */
+    background-color: #f7f7f700; /* Transparent background */
+    color: white;
+    border: none;
+    cursor: pointer;
+
+    background-image: url("mining.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    /* Make the image cover the entire button */
+    background-size: cover;
 }
