@@ -2,7 +2,6 @@
 function getTimestamp() {
     return Date.now(); // This returns milliseconds since epoch
 }
-
 // Function to handle card upgrades
 function getUpgradeCost() {
     let upgradeLevel = localStorage.getItem('upgradeLevel') || 0;
@@ -12,12 +11,10 @@ function getUpgradeCost() {
 
     return parseInt(cost);
 }
-
 // Auto Clicker card
 function getAutoClickerCost() {
     return 20;
 }
-
 // Back to game button functionality
 document.getElementById("miningButton").addEventListener("click", function() {
     window.location.href = "index.html";
@@ -38,13 +35,11 @@ function upgradeCard(cardId) {
         currentClicks = 0;
     }
     currentClicks = parseInt(currentClicks);
-
     const upgradeCost = getUpgradeCost();
-
     if (currentClicks >= upgradeCost) {
         currentClicks -= upgradeCost;
         localStorage.setItem('clickCount', currentClicks);
-
+        console.log(localStorage.getItem('clickCount'))
         // Get current upgrade level
         let upgradeLevel = localStorage.getItem('upgradeLevel') || 0; // Default to 0 if not set
         upgradeLevel++;
@@ -60,11 +55,11 @@ function upgradeCard(cardId) {
         displayCurrentBonus(upgradeLevel + 1);
 
         console.log("Card " + cardId + " upgraded! New upgrade level: " + upgradeLevel);
+        saveProgress()
     } else {
         alert("Not enough clicks to upgrade! (Need " + upgradeCost + ")");
     }
 }
-
 function purchaseAutoClicker() {
     let currentClicks = localStorage.getItem('clickCount');
     if (!currentClicks || currentClicks < 0) {
@@ -85,13 +80,12 @@ function purchaseAutoClicker() {
         const autoClickerButton = document.querySelector('button[onclick="purchaseAutoClicker()"]');
         autoClickerButton.disabled = true;
         autoClickerButton.innerText = "Purchased";
-
+        saveProgress()
         updateUpgradeView();
     } else {
         alert("Not enough clicks to purchase Auto Clicker!");
     }
 }
-
 function displayCurrentCost(upgradeCost) {
     document.getElementById("upgradeCostDisplay").innerText = upgradeCost;
 }
@@ -107,7 +101,6 @@ function initialValues() {
     document.getElementById("currentBonus").innerText = (parseInt(localStorage.getItem('upgradeLevel')) || 0) + 1;
     document.getElementById("autoClickerCost").innerText = getAutoClickerCost();
 }
-
 // Function to add coins every X milliseconds
 function addCoins() {
     let hasAutoClicker = localStorage.getItem('hasAutoClicker');
@@ -124,7 +117,6 @@ function addCoins() {
         updateUpgradeView();
     }
 }
-
 //Add coins on load
 addCoins();
 
@@ -132,12 +124,22 @@ addCoins();
 if (localStorage.getItem('hasAutoClicker') === 'true') {
     const autoClickerButton = document.querySelector('button[onclick="purchaseAutoClicker()"]');
     autoClickerButton.disabled = true;
-    autoClickerButton.innerText = "Purchased";
+    // autoClickerButton.innerText = "Purchased"; //отображает после покупки автокликера,что он куплен
 }
+
+
 
 //Initial values
 initialValues();
-
 //Update every X time
 setInterval(addCoins, 1000);
+
+window.addEventListener("beforeunload", (event) => {
+    // Call the saveProgress function
+    saveProgress();
+  
+    // Optionally, you can show a confirmation dialog
+    event.preventDefault(); // For most browsers
+    event.returnValue = ''; // For Chrome
+  });
 

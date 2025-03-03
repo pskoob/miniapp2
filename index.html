@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <script src="api.js"></script>
+        <script src="https://telegram.org/js/telegram-web-app.js"></script>
         <meta charset="UTF-8">
         <title>My Clicker Game</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -14,12 +16,12 @@
                 <div id="energyText">100</div>
             </div>
         </div>
-
+        
         
         <button id="coinButton">
             <img id="coinImage" src="coin2.png" alt="Монетка"> <!-- Замените coin.png на путь к вашему изображению -->
         </button>
-        <button id="upgradeButton" class="bottom-button">Upgrade Cards</button>
+        <button id="upgradeButton" class="bottom-button"></button>
         <button id="miningButton" class="mining-button"></button>
         <!-- <img id="miningImage" src="mining.png" alt="майн"> -->
     </div>
@@ -27,5 +29,7 @@
     
     
     <script src="script.js"></script>
+    
+    
 </body>
 </html>

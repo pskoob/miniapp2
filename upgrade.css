@@ -1,5 +1,5 @@
 body {
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #222;
     color: #fff;
     margin: 0; /* Reset default body margin */
@@ -8,7 +8,7 @@ body {
 }
 
 .upgrade-container {
-    max-width: 800px;
+    max-width: 500px;
     margin: 0 auto;         /* Center the container */
     text-align: center;
     padding: 20px;
@@ -27,51 +27,100 @@ body {
     color: white;
     position: relative;
     overflow: hidden;
-    box-sizing: border-box; /* Include padding in the element's total width and height */
-    vertical-align: top;    /* Align cards to the top */
+    box-sizing: border-box; 
+    vertical-align: top;    
 }
 
 /* Target specifically card 1 */
 #card1 {
-    background-image: url("сlickbooster.png"); /* Replace with your image */
+    background-image: url("svitok1.png"); /* Replace with your image */
     background-size: cover;                 /* Changed from contain to cover */
     background-repeat: no-repeat;
     background-position: center;
     color: white;
-    height: 250px;
+    height: 60px;
 }
+
+
+
 
 /* Target specifically card 2 */
 #card2 {
-    background-image: url("autoclick.jpg");
-    background-size: contain;   /* Ensures the image is fully visible */
+    background-image: url("svitok2.png");
+    background-size: cover;   /* Ensures the image is fully visible */
     background-repeat: no-repeat;
     background-position: center; /* Centers the image */
     color: white;
-    height: 250px;                 /* Or whatever height you want */
+    height: 60px;                 /* Or whatever height you want */
+}
+
+#card2 .card-content h2 {
+    position: relative;
+    bottom: 30px;  
+    left: 5px; 
+}
+
+#card2 .card-content button {
+    position: relative;  /* Or absolute, depending on the desired effect */
+    top: 2px;           /* Adjust as needed (positive value moves down) */
+    left: 35px;          /* Adjust as needed (negative value moves left) */
 }
 
 /* Initial state: Hide the card content */
-.card-content {
-    position: absolute;
+.card-content  {
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Optional: Add a semi-transparent background for the content */
+    background-color: rgba(0, 0, 0, 0); 
     display: flex;
-    flex-direction: column;
+    /* flex-direction: row; */
     justify-content: center;
     align-items: center;
-    opacity: 0;                /* Hidden by default */
-    transition: opacity 0.3s ease; /* Smooth fade-in effect */
-    box-sizing: border-box;     /* Include padding in the element's total width and height */
+    transition: opacity 0.3s ease; 
+    box-sizing: border-box;     
+}
+.card-content p {
+    font-size: 0.9em; /* Adjust this value as needed */
+    font-weight: bold;
+    position: relative;
+    right: 70px;
+    top: 5px;
+}
+
+
+
+.card-content h2 {
+    font-size: 1em; 
+    font-weight: bold;
+    position: relative;
+    top: -10px;
+    left: 40px;
+    
+}
+
+#levelContainer {
+    position: relative;
+    /* top: -2px;         */
+    bottom: -7px;
+    left: 30px;       
+    font-size: 1em;  
+}
+
+
+#upgradeCostDisplay {
+    position: relative;
+  
+    left: -5px;     
+    top: 2px;
+    font-size: 1em;  
 }
 
 /* card-interactive hover: Show the card content */
-.card-interactive:hover .card-content {
+/* .card-interactive:hover .card-content {
     opacity: 1;
-}
+} */
 
 .card h2 {
     margin-top: 0;
@@ -79,17 +128,20 @@ body {
 
 .card button {
     background-color: #4CAF50;
+    
     color: white;
     padding: 10px 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 30px;
+    width: 2px;
 }
 
-.card button:hover {
+/* .card button:hover {
     background-color: #3e8e41;
-}
+    
+} */
 
 #backButton {
     background-color: #555;
@@ -115,27 +167,31 @@ body {
     }
 
     .card {
-        width: 100%;      /* Make cards full-width */
-        margin: 10px 0;   /* Reduce margins */
-        display: block;  /* Stack cards vertically */
+        width: 100%;      
+        margin: 10px 0;   
+        display: block;  
     }
 
     .card button {
-        font-size: 18px; /* Increase button font size */
-        padding: 15px;    /* Increase button padding */
+        font-size: 18px; 
+        padding: 15px;    
     }
 }
 .bottom-button {
     position: fixed; /* Fix the button to the viewport */
     bottom: 0;      /* Place it at the bottom */
-    left: 10;       /* Align to the left */
-    width: 30%;     /* Make it full width */
-    text-align: center; /* Center the text */
-    padding: 10px;    /* Add some padding */
-    background-color: #4CAF50; /* Example background color */
+    left: 1;       /* Align to the left */
+    width: 20%;     /* Make it full width */
+    margin-left: -125px;
+    padding: 30px;    /* Add some padding */
+    
+    background-image: url("cardupgrade2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
     color: white;
     border: none;
     cursor: pointer;
+    background-size: cover;
 }
 
 .mining-button {
@@ -150,7 +206,7 @@ body {
     border: none;
     cursor: pointer;
 
-    background-image: url("mining.png");
+    background-image: url("mining2.jpg");
     background-repeat: no-repeat;
     background-position: center;
 

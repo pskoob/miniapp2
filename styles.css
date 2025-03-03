@@ -11,7 +11,11 @@ body {
     align-items: center; /* Center items horizontally */
     justify-content: flex-start; /* Align items to the top */
     min-height: 100vh; /* Ensure full viewport height */
-    background-color: #f0f0f0;
+    /* background-color: #f0f0f0; */
+    background-image: url("background1.jpg");    /*NEW*/
+    background-repeat: no-repeat;               /*NEW*/
+    background-position: center;                /*NEW*/
+    background-size: cover;
     font-family: Arial, sans-serif;
     padding: 20px; /* Add some padding around the content */
     box-sizing: border-box; /* Include padding in the element's total width and height */
@@ -25,7 +29,7 @@ body {
     font-size: 3em; /* Use em for font size */
     width: 100%;
     text-align: center;
-    color: rgb(22, 22, 22);
+    color: rgb(255, 255, 255);
     margin-bottom: 20px; /* Add some spacing below the counter */
 }
 
@@ -45,11 +49,11 @@ body {
     animation: jiggle 1s infinite; /* Apply the jiggle animation */
 }
 
-@keyframes jiggle {
+/* @keyframes jiggle {
     0% { transform: rotate(-5deg); }
     50% { transform: rotate(5deg); }
     100% { transform: rotate(-5deg); }
-}
+} */
 
 /* Container */
 .container {
@@ -107,14 +111,18 @@ body {
 .bottom-button {
     position: fixed; /* Fix the button to the viewport */
     bottom: 0;      /* Place it at the bottom */
-    left: 10;       /* Align to the left */
-    width: 30%;     /* Make it full width */
-    text-align: center; /* Center the text */
-    padding: 10px;    /* Add some padding */
-    background-color: #4CAF50; /* Example background color */
+    left: 1;       /* Align to the left */
+    width: 20%;     /* Make it full width */
+    margin-left: -101px;
+    padding: 30px;    /* Add some padding */
+    
+    background-image: url("cardupgrade2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
     color: white;
     border: none;
     cursor: pointer;
+    background-size: cover;
 }
 
 .mining-button {
@@ -129,7 +137,7 @@ body {
     border: none;
     cursor: pointer;
 
-    background-image: url("mining.png");
+    background-image: url("mining2.jpg");
     background-repeat: no-repeat;
     background-position: center;
 

@@ -10,6 +10,8 @@ const energyText = document.getElementById('energyText');
 const coinButton = document.getElementById('coinButton');
 const upgradeButton = document.getElementById('upgradeButton');
 
+fetchUserData();
+
 // Helper function
 function getTimestamp() {
     return Date.now(); // This returns milliseconds since epoch
@@ -90,3 +92,12 @@ upgradeButton.addEventListener('click', () => {
 
 // Set interval to add coins automatically every second
 setInterval(addCoins, 1000);
+
+window.addEventListener("beforeunload", (event) => {
+    // Call the saveProgress function
+    saveProgress();
+  
+    // Optionally, you can show a confirmation dialog
+    event.preventDefault(); // For most browsers
+    event.returnValue = ''; // For Chrome
+  });

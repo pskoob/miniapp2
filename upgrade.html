@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <script src="api.js"></script>
+        <script src="https://telegram.org/js/telegram-web-app.js"></script>
         <meta charset="UTF-8">
         <title>My Clicker Game</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" href="upgrade.css">
     </head>
 <body>
@@ -14,11 +16,11 @@
 
         <div class="card card-interactive" id="card1">
             <div class="card-content">
-                <h2>Click Booster</h2>
-                <p id="description">Power Click</p>
-                <p>Maxos per click: <span id="currentBonus">1</span></p>
-                <p>Upgrade Cost: <span id="upgradeCostDisplay">5</span></p>
-                <button onclick="upgradeCard('card1')">Upgrade</button>
+                <h2>Power Click</h2> 
+                <p id="description"></p>
+                <span id="levelContainer">lvl: <span id="currentBonus">1</span></span>
+                <p> <span id="upgradeCostDisplay">5</span> |</p>
+                <button onclick="upgradeCard('card1')"></button>
             </div>
         </div>
 
@@ -26,15 +28,20 @@
         <div class="card card-interactive" id="card2">
             <div class="card-content">
                 <h2>Auto Clicker</h2>
-                <p>Generates Maxos Over Time</p>
-                <p>Cost: <span id="autoClickerCost">20</span></p>
-                <button onclick="purchaseAutoClicker()">Purchase</button>
+                
+                <p> <span id="autoClickerCost">20</span> |</p>
+                <button onclick="purchaseAutoClicker()"></button>
             </div>
         </div>
-        <button id="upgradeButton" class="bottom-button">Upgrade Cards</button>
-        <button id="miningButton" class="mining-button">Mining</button>
+        <button id="upgradeButton" class="bottom-button"></button>
+        <button id="miningButton" class="mining-button"></button>
     </div>
     
+    
+
+
+
     <script src="upgrade.js"></script>
+    
 </body>
 </html>
