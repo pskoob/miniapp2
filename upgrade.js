@@ -79,7 +79,7 @@ function purchaseAutoClicker() {
         // Disable the button
         const autoClickerButton = document.querySelector('button[onclick="purchaseAutoClicker()"]');
         autoClickerButton.disabled = true;
-        autoClickerButton.innerText = "Purchased";
+        // autoClickerButton.innerText = "Purchased";
         saveProgress()
         updateUpgradeView();
     } else {
