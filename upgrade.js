@@ -127,7 +127,30 @@ if (localStorage.getItem('hasAutoClicker') === 'true') {
     // autoClickerButton.innerText = "Purchased"; //отображает после покупки автокликера,что он куплен
 }
 
+function upgradeMaxEnergy() {
+    const clicks = parseInt(localStorage.getItem('clickCount')) || 0;
+    if (clicks >= upgradeMaxEnergyCost) {
+      localStorage.setItem('clickCount', clicks - upgradeMaxEnergyCost);
+  
+      maxEnergy += 50; // Увеличиваем максимальную энергию (можно сделать переменную)
+      localStorage.setItem('maxEnergy', maxEnergy.toString());
+  
+      // Полностью восстанавливаем энергию при улучшении
+      energy = maxEnergy;
+      localStorage.setItem('energy', energy.toString());
+  
+      updateEnergyDisplay();
+      updateMaxEnergyDisplay();
+      updateUpgradeView(); // Обновляем UI
+      return true;
+    } else {
+      alert("Not enough clicks!");
+      return false;
+    }
+  }
 
+
+document.getElementById('upgradeMaxEnergyButton').addEventListener('click',  upgradeMaxEnergy);
 
 //Initial values
 initialValues();

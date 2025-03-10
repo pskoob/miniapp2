@@ -1,4 +1,5 @@
-async function fetchUserData() {
+async function FetchUserData() {
+  stopAutoClicker()
 
     // const tg_id = getTelegramUserId();
     const tg_id = 628225666
@@ -31,13 +32,16 @@ if (tg_id) {
       localStorage.setItem('clickCount', data.clickCount)
       
 
-
     } catch (error) {
       console.error("Ошибка при получении данных пользователя:", error);
       // document.getElementById("user-name").textContent = "Ошибка загрузки имени";
     }
+    
   }
 
+
+
+  
   function getTelegramUserId() {
     try {
         const webApp = Telegram.WebApp;
@@ -63,6 +67,7 @@ async function saveProgress() {
       clickCount: clickCount,      // Целое число
       upgradeLevel: upgradeLevel,   // Целое число
       hasAutoClicker: hasAutoClicker // Булевое значение
+      
   };
   console.log(progressData)
   try {
@@ -98,3 +103,76 @@ window.addEventListener("beforeunload", (event) => {
   event.returnValue = ''; // For Chrome
 });
 
+
+
+// Функция для запуска авто-кликера
+async function startAutoClicker() {
+  const tg_id = 628225666; 
+    try {
+        const response = await fetch(`http://localhost:8000/start_auto_clicker/${tg_id}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`Error ${response.status}: ${errorData.message || 'Unknown error'}`);
+        }
+
+        const data = await response.json();
+        console.log("Auto Clicker started successfully:", data);
+
+    } catch (error) {
+        console.error("Ошибка при запуске авто-кликера:", error);
+    }
+}
+
+// Функция для остановки авто-кликера
+async function stopAutoClicker() {
+  const tg_id = 628225666; 
+  try {
+      const response = await fetch(`http://localhost:8000/stop_auto_clicker/${tg_id}`, {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          }
+      });
+
+      if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(`Error ${response.status}: ${errorData.message || 'Unknown error'}`);
+      }
+
+      const data = await response.json();
+      console.log("Auto Clicker stopped successfully:", data);
+
+  } catch (error) {
+      console.error("Ошибка при остановке авто-кликера:", error);
+  }
+}
+
+// Обработчик события beforeunload
+window.addEventListener('beforeunload', async (event) => {
+  // Сначала вызываем saveProgress
+  await saveProgress(); // Ждем завершения saveProgress
+
+  // Затем вызываем startAutoClicker
+  startAutoClicker();
+
+  // Опционально, можно показать диалог подтверждения
+  event.preventDefault(); // Для большинства браузеров
+  event.returnValue = ''; // Для Chrome
+});
+
+// Обработчик события visibilitychange
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') {
+      // Если страница скрыта (пользователь закрыл приложение)
+      // startAutoClicker();
+  } else {
+      // Если страница видима (пользователь открыл приложение)
+      stopAutoClicker();
+  }
+});

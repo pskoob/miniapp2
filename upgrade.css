@@ -66,6 +66,35 @@ body {
     left: 35px;          /* Adjust as needed (negative value moves left) */
 }
 
+
+/*energy card*/
+#card3 {
+    background-image: url("svitok2.png");
+    background-size: cover;   /* Ensures the image is fully visible */
+    background-repeat: no-repeat;
+    background-position: center; /* Centers the image */
+    color: white;
+    height: 60px;              
+
+}
+
+#card3 .card-content h2 {
+    position: relative;
+    bottom: 30px;  
+    left: 5px; 
+}
+
+#card3 .card-content button {
+    position: relative;  /* Or absolute, depending on the desired effect */
+    top: 2px;           /* Adjust as needed (positive value moves down) */
+    left: 35px;          /* Adjust as needed (negative value moves left) */
+}
+
+
+
+
+
+
 /* Initial state: Hide the card content */
 .card-content  {
     position: relative;
