@@ -1,56 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <script src="api.js"></script>
-        <script src="https://telegram.org/js/telegram-web-app.js"></script>
-        <meta charset="UTF-8">
-        <title>My Clicker Game</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <link rel="stylesheet" href="upgrade.css">
-    </head>
+<head>
+    <script src="api.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <meta charset="UTF-8">
+    <title>My Clicker Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="upgrade.css">
+</head>
 <body>
 
-    <div class="upgrade-container">
-        <h1>Upgrade Your Cards!</h1>
-        <p>Clicks Available: <span id="currentClicks">0</span></p>
+<div class="upgrade-container">
+    <h1>Upgrade Your Cards!</h1>
+    <p>Clicks Available: <span id="currentClicks">0</span></p>
 
-        <div class="card card-interactive" id="card1">
-            <div class="card-content">
-                <h2>Power Click</h2> 
+    <div class="card card-interactive" id="card1">
+        <div class="card-content">
+            <div class="card-text">
+                <h2>Power Click</h2>
                 <p id="description"></p>
-                <span id="levelContainer">lvl: <span id="currentBonus">1</span></span>
-                <p> <span id="upgradeCostDisplay">5</span> |</p>
-                <button onclick="upgradeCard('card1')"></button>
+                <div class="card-details">
+                    <span id="levelContainer">lvl: <span id="currentBonus"></span></span> |
+                    <span id="upgradeCostDisplay">5</span>
+                </div>
             </div>
+            <button onclick="upgradeCard('card1')"></button>
         </div>
-
-        <!-- New Card -->
-        <div class="card card-interactive" id="card2">
-            <div class="card-content">
-                <h2>Auto Clicker</h2>
-                
-                <p> <span id="autoClickerCost">20</span> |</p>
-                <button onclick="purchaseAutoClicker()"></button>
-            </div>
-        </div>
-        <button id="upgradeButton" class="bottom-button"></button>
-        <button id="miningButton" class="mining-button"></button>
     </div>
-    <!--Energy Card-->
+
+    <!-- New Card -->
+    <div class="card card-interactive" id="card2">
+        <div class="card-content">
+            <div class="card-text">
+                <h2>Auto Clicker</h2>
+                <p> <span id="autoClickerCost">20</span> |</p>
+            </div>
+            <button onclick="purchaseAutoClicker()"></button>
+        </div>
+    </div>
+
+    <!-- Energy Card -->
     <div class="card card-interactive" id="card3">
-    <div class="card-content">
-        <!-- <div id="maxEnergyContainer"> -->
-            <h2>Energy</h2>
-    <p>Max Energy: <span id="maxEnergyValue">100</span></p>
-    <button id="upgradeMaxEnergyButton"></button>
-</div>
-  </div>
+        <div class="card-content">
+            <div class="card-text">
+                <h2>Energy</h2>
+                <p>Max Energy: <span id="maxEnergyValue">100</span></p>
+            </div>
+            <button id="upgradeMaxEnergyButton"></button>
+        </div>
+    </div>
 
+    <button id="upgradeButton" class="bottom-button"></button>
+    <button id="miningButton" class="mining-button"></button>
+</div>  <!-- Закрывающий тег для .upgrade-container перенесен сюда -->
 
+<script src="upgrade.js"></script>
+<script src="energy.js"></script>
 
-
-    <script src="upgrade.js"></script>
-    <script src="energy.js"></script>
-    
 </body>
 </html>

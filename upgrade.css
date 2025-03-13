@@ -1,18 +1,19 @@
+/* Общие стили (остаются без изменений) */
 body {
     font-family: Arial, sans-serif;
     background-color: #222;
     color: #fff;
-    margin: 0; /* Reset default body margin */
+    margin: 0;
     padding: 20px;
-    box-sizing: border-box; /* Include padding in the element's total width and height */
+    box-sizing: border-box;
 }
 
 .upgrade-container {
     max-width: 500px;
-    margin: 0 auto;         /* Center the container */
+    margin: 0 auto;
     text-align: center;
     padding: 20px;
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    box-sizing: border-box;
 }
 
 .card {
@@ -20,190 +21,130 @@ body {
     border-radius: 8px;
     padding: 20px;
     margin: 20px;
-    display: inline-block;    /* <--- Removed Display for mobile fix */
-    width: calc(50% - 40px); /* Two cards per row on larger screens */
-    max-width: 300px;       /* Set a max width for the cards */
+    display: inline-block;
+    width: calc(50% - 40px);
+    max-width: 300px;
     text-align: left;
     color: white;
     position: relative;
     overflow: hidden;
-    box-sizing: border-box; 
-    vertical-align: top;    
+    box-sizing: border-box;
+    vertical-align: top;
+    /*height: 180px;  Удаляем фиксированную высоту */
 }
 
-/* Target specifically card 1 */
+/* Стили для фона карточек (остаются без изменений) */
 #card1 {
-    background-image: url("svitok1.png"); /* Replace with your image */
-    background-size: cover;                 /* Changed from contain to cover */
+    background-image: url("svitok1.png");
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     color: white;
     height: 60px;
 }
 
-
-
-
-/* Target specifically card 2 */
 #card2 {
     background-image: url("svitok2.png");
-    background-size: cover;   /* Ensures the image is fully visible */
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; /* Centers the image */
+    background-position: center;
     color: white;
-    height: 60px;                 /* Or whatever height you want */
+    height: 60px;
 }
 
-#card2 .card-content h2 {
-    position: relative;
-    bottom: 30px;  
-    left: 5px; 
-}
-
-#card2 .card-content button {
-    position: relative;  /* Or absolute, depending on the desired effect */
-    top: 2px;           /* Adjust as needed (positive value moves down) */
-    left: 35px;          /* Adjust as needed (negative value moves left) */
-}
-
-
-/*energy card*/
 #card3 {
-    background-image: url("svitok2.png");
-    background-size: cover;   /* Ensures the image is fully visible */
+    background-image: url("svitok3_1.png");
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; /* Centers the image */
+    background-position: center;
     color: white;
-    height: 60px;              
-
+    height: 60px;
 }
 
-#card3 .card-content h2 {
-    position: relative;
-    bottom: 30px;  
-    left: 5px; 
-}
-
-#card3 .card-content button {
-    position: relative;  /* Or absolute, depending on the desired effect */
-    top: 2px;           /* Adjust as needed (positive value moves down) */
-    left: 35px;          /* Adjust as needed (negative value moves left) */
-}
-
-
-
-
-
-
-/* Initial state: Hide the card content */
-.card-content  {
+/* Стили для содержимого карточек (Flexbox) */
+.card-content {
     position: relative;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0); 
+    background-color: rgba(0, 0, 0, 0);
     display: flex;
-    /* flex-direction: row; */
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.3s ease; 
-    box-sizing: border-box;     
+    flex-direction: row;  /* Возвращаем горизонтальное расположение */
+    justify-content: space-between; /* Распределяем пространство между текстом и кнопкой */
+    align-items: center; /* Выравниваем по вертикальному центру */
+    transition: opacity 0.3s ease;
+    box-sizing: border-box;
 }
-.card-content p {
-    font-size: 0.9em; /* Adjust this value as needed */
+
+
+/* Стили для текстового содержимого */
+.card-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 70%;
+}
+
+.card-text h2 {
+    font-size: 1em;
     font-weight: bold;
-    position: relative;
-    right: 70px;
-    top: 5px;
+    margin: 0;
+    margin-left: 30%;
+    margin-bottom: 5px;
+    color: white;
 }
 
-
-
-.card-content h2 {
-    font-size: 1em; 
+.card-text p {
+    font-size: 0.9em;
     font-weight: bold;
-    position: relative;
-    top: -10px;
-    left: 40px;
-    
+    margin: 0;
+    margin-left: 30%;
+    margin-bottom: 5px;
+    color: white;
 }
 
-#levelContainer {
-    position: relative;
-    /* top: -2px;         */
-    bottom: -7px;
-    left: 30px;       
-    font-size: 1em;  
+.card-details {
+    display: flex;           /* Используем Flexbox для управления выравниванием */
+    align-items: center;     /* Выравниваем элементы по вертикали */
+    margin-left: 30%;        /* Отступ слева */
+    font-size: 0.9em;         /*Размер шрифта как у параграфа*/
+}
+
+.card-details span {
+    margin-right: 5px;      /* Небольшой отступ справа от уровня */
 }
 
 
-#upgradeCostDisplay {
-    position: relative;
-  
-    left: -5px;     
-    top: 2px;
-    font-size: 1em;  
-}
 
-/* card-interactive hover: Show the card content */
-/* .card-interactive:hover .card-content {
-    opacity: 1;
-} */
-
-.card h2 {
-    margin-top: 0;
-}
-
+/* Стили для кнопки */
 .card button {
     background-color: #4CAF50;
-    
     color: white;
-    padding: 10px 15px;
+    padding: 5px 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 30px;
-    width: 2px;
+    font-size: 1em;
+    width: auto;
+    /* margin-left: auto;  Удаляем этот стиль */
 }
 
-/* .card button:hover {
-    background-color: #3e8e41;
-    
-} */
-
-#backButton {
-    background-color: #555;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 20px;
-    display: block;      /* Ensure it takes full width on mobile */
-    margin: 20px auto;   /* Center the button */
-}
-
-#backButton:hover {
-    background-color: #777;
-}
-
-/* Media query for smaller screens */
+/* Медиа-запрос для маленьких экранов (без изменений) */
 @media (max-width: 768px) {
     body {
         font-size: 16px;
     }
 
     .card {
-        width: 100%;      
-        margin: 10px 0;   
-        display: block;  
+        width: 100%;
+        margin: 10px 0;
+        display: block;
     }
 
     .card button {
-        font-size: 18px; 
-        padding: 15px;    
+        font-size: 18px;
+        padding: 15px;
     }
 }
 .bottom-button {
