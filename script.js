@@ -38,8 +38,8 @@ function useEnergy(amount) {
   }
   
   document.getElementById('coinButton').addEventListener('click', function() {
-    const energyCost = 1; // Количество энергии, которое тратится при клике
-    const success = useEnergy(energyCost); // Пытаемся потратить энергию
+    constenergyPerClick = 1; // Количество энергии, которое тратится при клике
+    const success = useEnergy(energyPerClick); // Пытаемся потратить энергию
   
     if (success) {
       // Действие выполнено успешно (энергия потрачена)
@@ -99,11 +99,11 @@ coinButton.addEventListener('click', () => {
 
         updateCounter();
 
-        // energy -= 1;
+        energy -= 1;
         // energyLevel.style.width = energy + '%';
         // energyText.textContent = energy;
-    // } else {
-    //     alert("Энергия исчерпана!");
+    } else {
+        alert("Энергия исчерпана!");
     }
 });
 
