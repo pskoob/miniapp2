@@ -166,13 +166,13 @@ body {
     left: 0;
     width: 20%;
     text-align: center;
-    padding: 30px; /* This padding will affect the image size */
+    padding: 30px; 
     background-color: #f7f7f700; /* Transparent background */
     color: white;
     border: none;
     cursor: pointer;
 
-    background-image: url("mining2.jpg");
+    background-image: url("miningAqua.png");
     background-repeat: no-repeat;
     background-position: center;
 
