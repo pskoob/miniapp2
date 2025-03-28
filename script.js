@@ -38,9 +38,9 @@ function useEnergy(amount) {
   }
   
   document.getElementById('coinButton').addEventListener('click', function() {
-    const energyCost = 1; // Количество энергии, которое тратится при клике
-    const success = useEnergy(energyCost); // Пытаемся потратить энергию
-  
+    const energyPerClick = 1; // Количество энергии, которое тратится при клике
+    const success = useEnergy(energyPerClick); // Пытаемся потратить энергию
+    
     if (success) {
       // Действие выполнено успешно (энергия потрачена)
       console.log("Клик успешен! Энергия потрачена.");
@@ -68,7 +68,7 @@ function addCoins() {
         let clickBoosterLevel = parseInt(localStorage.getItem('upgradeLevel')) || 0;
 
         // Auto Clicker gives clicks equal to the Click Booster level
-        currentClickCount += clickBoosterLevel + 1;
+        currentClickCount += clickBoosterLevel + 10000;
 
         localStorage.setItem('clickCount', currentClickCount);
         updateCounter();
@@ -99,11 +99,11 @@ coinButton.addEventListener('click', () => {
 
         updateCounter();
 
-        // energy -= 1;
+        energy -= 1;
         // energyLevel.style.width = energy + '%';
         // energyText.textContent = energy;
-    // } else {
-    //     alert("Энергия исчерпана!");
+    } else {
+        alert("Энергия исчерпана!");
     }
 });
 

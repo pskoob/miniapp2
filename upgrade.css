@@ -1,11 +1,17 @@
 /* Общие стили (остаются без изменений) */
 body {
     font-family: Arial, sans-serif;
-    background-color: #222;
+    background-image: url("imgUpgrade/backForUpgrade.jpg");  
+    /* background-color: #959684; */
+    background-repeat: no-repeat; 
+    background-position: center;   
+    background-size: 100% 100%;
+    min-height: 100vh; /* Ensure full viewport height */
     color: #fff;
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
+    
 }
 
 .upgrade-container {
@@ -14,6 +20,7 @@ body {
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
+    margin-top: 60%;
 }
 
 .card {
@@ -35,17 +42,18 @@ body {
 
 /* Стили для фона карточек (остаются без изменений) */
 #card1 {
-    background-image: url("svitok1.png");
-    background-size: cover;
+    background-image: url("imgUpgrade/cactus2.jpg");
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
     color: white;
     height: 60px;
+    padding: 10px;
 }
 
 #card2 {
-    background-image: url("svitok2.png");
-    background-size: cover;
+    background-image: url("imgUpgrade/skar2.jpg");
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
     color: white;
@@ -53,8 +61,8 @@ body {
 }
 
 #card3 {
-    background-image: url("svitok3_1.png");
-    background-size: cover;
+    background-image: url("imgUpgrade/water.jpg");
+    background-size:100% 100%;
     background-repeat: no-repeat;
     background-position: center;
     color: white;
@@ -84,7 +92,14 @@ body {
     flex-direction: column;
     align-items: flex-start;
     width: 70%;
+    text-shadow:
+    -1px -1px 0 #000,  /* Тень слева сверху */
+    1px -1px 0 #000,   /* Тень справа сверху */
+    -1px 1px 0 #000,   /* Тень слева снизу */
+    1px 1px 0 #000;    /* Тень справа снизу */
 }
+
+
 
 .card-text h2 {
     font-size: 1em;
@@ -152,8 +167,8 @@ body {
     bottom: 0;      /* Place it at the bottom */
     left: 1;       /* Align to the left */
     width: 20%;     /* Make it full width */
-    margin-left: -125px;
-    padding: 30px;    /* Add some padding */
+    margin-left:-30% ;
+    padding: 30px;    
     
     background-image: url("cardupgrade2.jpg");
     background-repeat: no-repeat;

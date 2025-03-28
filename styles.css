@@ -12,77 +12,116 @@ body {
     justify-content: flex-start; /* Align items to the top */
     min-height: 100vh; /* Ensure full viewport height */
     /* background-color: #f0f0f0; */
-    background-image: url("background1.jpg");    /*NEW*/
+    background-image: url("imgFirstPage/back.jpg");    
     background-repeat: no-repeat;               /*NEW*/
     background-position: center;                /*NEW*/
     background-size: cover;
     font-family: Arial, sans-serif;
-    padding: 20px; /* Add some padding around the content */
-    box-sizing: border-box; /* Include padding in the element's total width and height */
-
+    padding: 0px; 
+    box-sizing: border-box;
+    overflow: hidden;
+    /* padding-top: 30px; */
     /* ADDED to prevent zooming */
     touch-action: manipulation; /* Prevents all zooming and panning */
 }
 
-/* Counter */
-#counterDisplay { /* Corrected ID to match HTML */
-    font-size: 3em; /* Use em for font size */
+
+#counterDisplay {
+    font-family: 'Bangers', cursive; /* Более читаемый шрифт */
+    font-size: 2em; /* Немного увеличим размер */
     width: 100%;
     text-align: center;
-    color: rgb(255, 255, 255);
-    margin-bottom: 20px; /* Add some spacing below the counter */
+    color: #4a3728; /* Темно-коричневый цвет */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Мягкая тень */
+    /* фон */
+    /* background: linear-gradient(to bottom, #e9d1b0, #d6ba93); */
+    background:none;
+    /* Убираем background-clip и text-fill-color */
+    /* -webkit-background-clip: text; */
+    /* background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
+    margin-bottom: 20px; /* Уменьшим отступ */
+}
+
+#counterDisplay::before{
+    content: 'Ваши очки:';
 }
 
 /* Coin Button */
-#coinButton, .card button {
+#coinButton {
+    touch-action: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    background-image: url("3506.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; /*  Чтобы изображение полностью помещалось в кнопку */
+    width: 300px;
+    height: 300px;
+    /* margin-top: 120px; */
+}
+
+/* #coinImage {
+    width: 100%;
+    max-width: none;
+  
+    object-fit: cover; 
+    animation: jiggle 1s infinite;
+} */
+
+
+
+.card button {
     touch-action: none; /* Optional: Disable touch actions on specific elements */
     background: none;
     border: none;
     cursor: pointer;
+ 
     padding: 0;
 }
 
-#coinImage {
-    width: 20vw; /* Use viewport width for coin image size */
-    max-width: 150px; /* Limit the maximum size */
-    height: auto;
-    animation: jiggle 1s infinite; /* Apply the jiggle animation */
-}
-
-/* @keyframes jiggle {
-    0% { transform: rotate(-5deg); }
-    50% { transform: rotate(5deg); }
-    100% { transform: rotate(-5deg); }
-} */
 
 /* Container */
 .container {
-    width: 90%;           /* Use percentage for width */
-    max-width: 500px;      /* Limit the maximum width */
-    margin: 0 auto;       /* Center the container horizontally */
-    position: relative;   /* Needed for absolute positioning */
-    padding: 20px;        /* Add padding */
-    box-sizing: border-box; /* Include padding in width */
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center; /* Центрируем элементы по горизонтали */
+    min-height: 100vh; /* Занимает всю высоту экрана */
+    /* padding: 350px;  Удалите это свойство */
+    box-sizing: border-box; /* Важно, чтобы отступы не увеличивали размер контейнера */
+    position: relative; /* Для позиционирования fixed элементов внутри контейнера */
+    justify-content: flex-start; /* Центрируем элементы по вертикали */
+    margin-top:  -180px;
 }
 
 /* Energy Bar */
 #energyBar {
-    width: 100%;       /* Fill the container width */
-    max-width: 300px;  /* Limit the maximum width */
-    background-color: #e0e0e0;
-    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    height: 30px;
+    /* background-color: #37474f;  */
+    border-radius: 15px; /* Скругленные края */
     overflow: hidden;
-    margin-top: 20px;    /* Add margin to separate from other content */
-    position: relative; /* Position relative for absolute positioning inside */
+    margin-top: 20px;
+    position: relative;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);  */
 }
 
 #energyLevel {
-    height: 30px;
-    background-color: #76c7c0; /* Цвет шкалы энергии */
-    width: 100%;                /* Initial value */
-    transition: width 0.3s;    /* Smooth transition */
+    height: 100%;
+    /* background: linear-gradient(to right, rgba(179, 229, 252, 0.8), rgba(255, 255, 255, 0.2)); Светло-голубая роса */
+    width: 100%;
+    transition: width 0.3s;
     position: relative;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #b3e5fc; /* Свечение */
+    background-image: url('vodapuz.webp'); /* Путь к изображению */
+    /* background-size: cover;  */
+     background-size: 200px;  
+    background-repeat: repeat; /* Повторять текстуру по горизонтали и вертикали */
 }
+
 
 #energyText {
     position: absolute;
@@ -101,21 +140,17 @@ body {
         font-size: 16px; /* Adjust base font size for smaller screens */
     }
 
-    #coinImage {
-        width: 30vw;     /* Make the coin image larger on small screens */
-        max-width: 200px; /* Increased maximum size */
-    }
+
 
     /* ... any other adjustments you need for small screens ... */
 }
-.bottom-button {
-    position: fixed; /* Fix the button to the viewport */
-    bottom: 0;      /* Place it at the bottom */
-    left: 1;       /* Align to the left */
-    width: 20%;     /* Make it full width */
-    margin-left: -101px;
-    padding: 30px;    /* Add some padding */
-    
+#upgradeButton {
+    position: fixed;
+    bottom: 0;
+    left: 20%; /* Центрируем по горизонтали */
+    /* transform: translateX(-50%);  */
+    width: 20%;
+    padding: 30px;
     background-image: url("cardupgrade2.jpg");
     background-repeat: no-repeat;
     background-position: center;

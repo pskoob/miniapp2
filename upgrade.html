@@ -11,8 +11,8 @@
 <body>
 
 <div class="upgrade-container">
-    <h1>Upgrade Your Cards!</h1>
-    <p>Clicks Available: <span id="currentClicks">0</span></p>
+    <h1></h1>
+    <p> <span id="currentClicks">0</span></p>
 
     <div class="card card-interactive" id="card1">
         <div class="card-content">
@@ -44,9 +44,12 @@
         <div class="card-content">
             <div class="card-text">
                 <h2>Energy</h2>
-                <p>Max Energy: <span id="maxEnergyValue">100</span></p>
+                <div class="card-details">  <!-- Добавляем card-details -->
+                    <span id="levelContainer">lvl: <span id="currentEnergyBonus">0</span></span> |
+                    <span id="upgradeCostEnergyDisplay">5</span>
+                </div>
             </div>
-            <button id="upgradeMaxEnergyButton"></button>
+            <button id="upgradeEnergyButton" onclick="upgradeCard('card3'); upgradeMaxEnergy();"></button>
         </div>
     </div>
 

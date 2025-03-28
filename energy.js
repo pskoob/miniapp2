@@ -15,7 +15,7 @@ const upgradeMaxEnergyCost = 100;
 
 function updateEnergyDisplay() {
   if (energyLevel && energyText) {
-    energyLevel.style.width = (energy / maxEnergy) * 100 + '%'; // Correct the calculation
+    energyLevel.style.width = (energy / maxEnergy) * 100 + '%'; 
     energyText.textContent = Math.floor(energy);
   }
 }
@@ -47,12 +47,12 @@ function getEnergy() {
 // Load values from localStorage
 var storedEnergy = localStorage.getItem('energy');
 if (storedEnergy) {
-  energy = parseFloat(storedEnergy);
+  energy = parseInt(storedEnergy);
 }
 
 var storedMaxEnergy = localStorage.getItem('maxEnergy'); // Загружаем maxEnergy
 if (storedMaxEnergy) {
-  maxEnergy = parseFloat(storedMaxEnergy);
+  maxEnergy = parseInt(storedMaxEnergy);
 }
 
 // Initialize on load
