@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инвентарь</title>
+    <link rel="stylesheet" href="inventory.css"> <!-- Стили для инвентаря -->
+</head>
+<body>
+
+    <div id="inventory">
+        <h2>Инвентарь</h2>
+
+        <!-- Вкладки -->
+        <div class="tabs">
+            <button class="tab-button" data-tab="skins" onclick="activateTab('skins')">Оформление</button>
+            <button class="tab-button" data-tab="lootboxes" onclick="activateTab('lootboxes')">Лутбоксы</button>
+            <button class="tab-button" data-tab="items" onclick="activateTab('items')">Предметы</button>
+        </div>
+
+        <!-- Контейнеры для контента вкладок -->
+        <div class="tab-content" id="skins">
+            <h3>Оформление</h3>
+            <div class="skin-grid" id="skinsGrid">
+                <!-- Здесь будут отображаться купленные скины -->
+            </div>
+        </div>
+
+        <div class="tab-content" id="lootboxes">
+            <h3>Лутбоксы</h3>
+            <div class="item-grid" id="lootboxesGrid">
+                <!-- Здесь будут отображаться лутбоксы -->
+            </div>
+        </div>
+
+        <div class="tab-content" id="items">
+            <h3>Предметы</h3>
+            <div class="item-grid" id="itemsGrid">
+                <!-- Здесь будут отображаться предметы -->
+            </div>
+        </div>
+        <button id="upgradeButton" class="bottom-button"></button>
+        <button id="miningButton" class="mining-button"></button>
+        <button id="shopButton"    class="shop-button"></button>
+        <button id="inventoryButton"    class="inventory-button"></button>
+        
+    </div>
+    <script src="theme.js"></script> 
+    <script src="inventory.js"></script> 
+    <script src="shop.js"></script> 
+    
+
+</body>
+</html>

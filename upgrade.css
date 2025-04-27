@@ -11,7 +11,7 @@ body {
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
-    
+    touch-action: manipulation;
 }
 
 .upgrade-container {
@@ -192,6 +192,44 @@ body {
     cursor: pointer;
 
     background-image: url("miningAqua.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    /* Make the image cover the entire button */
+    background-size: cover;
+}
+.shop-button {
+    position: fixed;
+    bottom: 0;
+    left: 40%;
+    width: 20%;
+    text-align: center;
+    padding: 30px; 
+    background-color: #f7f7f700; /* Transparent background */
+    color: white;
+    border: none;
+    cursor: pointer;
+
+    background-image: url("shop.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    /* Make the image cover the entire button */
+    background-size: cover;
+}
+.inventory-button {
+    position: fixed;
+    bottom: 0;
+    left: 60%;
+    width: 20%;
+    text-align: center;
+    padding: 30px; 
+    background-color: #f7f7f700; /* Transparent background */
+    color: white;
+    border: none;
+    cursor: pointer;
+
+    background-image: url("inventory.png");
     background-repeat: no-repeat;
     background-position: center;
 

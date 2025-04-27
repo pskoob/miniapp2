@@ -56,6 +56,12 @@ function useEnergy(amount) {
 upgradeButton.addEventListener('click', () => {
     window.location.href = "upgrade.html";
 });
+shopButton.addEventListener('click', () => {
+  window.location.href = "shop.html";
+});
+inventoryButton.addEventListener('click', () => {
+  window.location.href = "inventory.html";
+});
 
 
 // Function to add coins every X milliseconds
@@ -68,7 +74,7 @@ function addCoins() {
         let clickBoosterLevel = parseInt(localStorage.getItem('upgradeLevel')) || 0;
 
         // Auto Clicker gives clicks equal to the Click Booster level
-        currentClickCount += clickBoosterLevel + 10000;
+        currentClickCount += clickBoosterLevel + 1;
 
         localStorage.setItem('clickCount', currentClickCount);
         updateCounter();

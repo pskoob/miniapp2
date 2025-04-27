@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Магазин оформлений</title>
+    <link rel="stylesheet" href="shop.css">  <!-- Your Shop CSS -->
+    <link id="theme-link" rel="stylesheet" href="theme-desert.css">
+</head>
+<body>
+
+    <div id="shop">
+
+        <h2>Магазин задних фонов</h2>
+        <div id="counterDisplay">0</div>
+        <div class="skin-grid">
+
+            <!-- Скин 1: Лес -->
+            <div class="skin-item" data-skin="simpson" data-price="100">
+                <img src="fon.jpg" alt="Задний фон: simpson">
+                <p>Лес</p>
+                <p>Цена: 100</p>
+                <button class="buy-button" onclick="buySkin('simpson', 100)">Buy</button>
+                <button class="preview-button" onclick="previewSkin('simpson')">Preview</button>
+                <button class="install-button" onclick="installSkin('simpson')">Select</button>
+            </div>
+
+            <!-- Скин 2: Горы -->
+            <div class="skin-item" data-skin="mountains" data-price="150">
+                <img src="fon2.jpg" alt="Задний фон: Горы">
+                <p>Горы</p>
+                <p>Цена: 150</p>
+                <button class="buy-button" onclick="buySkin('mountains', 150)">Buy</button>
+                <button class="preview-button" onclick="previewSkin('mountains')">Preview</button>
+                <button class="install-button" onclick="installSkin('mountains')">Select</button>
+            </div>
+
+            <!-- Скин 3: Пляж -->
+            <div class="skin-item" data-skin="beach" data-price="200">
+                <img src="back.jpg" alt="Задний фон: Пляж">
+                <p>Пляж</p>
+                <p>Цена: 250</p>
+                <button class="buy-button" onclick="buySkin('beach', 250)">Buy</button>
+                <button class="preview-button" onclick="previewSkin('beach')">Preview</button>
+                <button class="install-button" onclick="installSkin('beach')">Select</button>
+            </div>
+
+        </div>
+        <!-- <a href="index.html">Вернуться в игру</a> -->
+        <button id="miningButton" class="mining-button"></button>
+        <button id="upgradeButton" class="bottom-button"></button>
+        <button id="shopButton"    class="shop-button"></button>
+        <button id="inventoryButton"    class="inventory-button"></button>
+    </div>
+
+
+        <!-- Модальное окно предпросмотра -->
+        <div id="previewModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <img id="previewImage" src="" alt="Предпросмотр">
+            </div>
+        </div>
+        <script src="shop.js"></script> <!-- Your Shop Logic -->
+        <script src="theme.js"></script> <!-- NEW:  Theme Management Logic -->
+</body>
+</html>

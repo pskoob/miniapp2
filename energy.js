@@ -1,9 +1,9 @@
 // energy.js
 
 // Global variables
-var energy = 100;
-var maxEnergy = 100; // Добавляем переменную для максимальной энергии
-const baseMaxEnergy = 100; // Базовое значение maxEnergy
+var energy = 1000;
+var maxEnergy = 1000; // Добавляем переменную для максимальной энергии
+const baseMaxEnergy = 1000; // Базовое значение maxEnergy
 const energyRecoveryRate = 1;
 const recoveryInterval = 1000;
 

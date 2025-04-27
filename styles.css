@@ -13,8 +13,8 @@ body {
     min-height: 100vh; /* Ensure full viewport height */
     /* background-color: #f0f0f0; */
     background-image: url("imgFirstPage/back.jpg");    
-    background-repeat: no-repeat;               /*NEW*/
-    background-position: center;                /*NEW*/
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
     font-family: Arial, sans-serif;
     padding: 0px; 
@@ -22,7 +22,7 @@ body {
     overflow: hidden;
     /* padding-top: 30px; */
     /* ADDED to prevent zooming */
-    touch-action: manipulation; /* Prevents all zooming and panning */
+    touch-action: manipulation;
 }
 
 
@@ -56,19 +56,58 @@ body {
     background-image: url("3506.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain; /*  Чтобы изображение полностью помещалось в кнопку */
-    width: 300px;
-    height: 300px;
-    /* margin-top: 120px; */
+    background-size: contain;
+    width: 10vw;       /* Ширина кнопки (50% от ширины экрана) */
+    height: 10vw;      /* Высота кнопки (50% от ширины экрана) */
+    max-width: 300px;   /* Максимальная ширина кнопки */
+    max-height: 300px;  /* Максимальная высота кнопки */
+    margin-top: 5vw;   /* Отступ сверху */
+
 }
 
-/* #coinImage {
-    width: 100%;
-    max-width: none;
-  
-    object-fit: cover; 
-    animation: jiggle 1s infinite;
-} */
+
+@media (max-width: 528px) {
+    #coinButton {
+        width: 60vw;  /* Уменьшаем размер кнопки на маленьких экранах */
+        height: 60vw;
+        max-width: none;   /* Убираем максимальное ограничение */
+        max-height: none;
+        margin-top: 8vw; /* Увеличиваем отступ на маленьких экранах */
+    }
+}
+
+@media (min-width: 529px) and (max-width: 767px) {
+    /* Для телефонов с шириной экрана от 529px до 767px */
+    #coinButton {
+        width: 50vw;
+        height: 50vw;
+        max-width: none;
+        max-height: none;
+        margin-top: 6vw;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    /* Для планшетов */
+    #coinButton {
+        width: 30vw;
+        height: 30vw;
+        max-width: 400px;
+        max-height: 400px;
+        margin-top: 7vw;
+    }
+}
+
+@media (min-width: 1200px) { /* Для больших экранов */
+    #coinButton {
+        width: 20vw;
+        height: 20vw;
+        max-width: 500px;
+        max-height: 500px;
+        margin-top: 10vw;
+    }
+}
+
 
 
 
@@ -137,12 +176,12 @@ body {
 /* Media query for smaller screens */
 @media (max-width: 768px) {
     body {
-        font-size: 16px; /* Adjust base font size for smaller screens */
+        font-size: 16px; 
     }
 
 
 
-    /* ... any other adjustments you need for small screens ... */
+   
 }
 #upgradeButton {
     position: fixed;
@@ -173,6 +212,44 @@ body {
     cursor: pointer;
 
     background-image: url("miningAqua.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    /* Make the image cover the entire button */
+    background-size: cover;
+}
+.shop-button {
+    position: fixed;
+    bottom: 0;
+    left: 40%;
+    width: 20%;
+    text-align: center;
+    padding: 30px; 
+    background-color: #f7f7f700; /* Transparent background */
+    color: white;
+    border: none;
+    cursor: pointer;
+
+    background-image: url("shop.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    /* Make the image cover the entire button */
+    background-size: cover;
+}
+.inventory-button {
+    position: fixed;
+    bottom: 0;
+    left: 60%;
+    width: 20%;
+    text-align: center;
+    padding: 30px; 
+    background-color: #f7f7f700; /* Transparent background */
+    color: white;
+    border: none;
+    cursor: pointer;
+
+    background-image: url("inventory.png");
     background-repeat: no-repeat;
     background-position: center;
 

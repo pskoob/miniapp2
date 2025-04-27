@@ -8,27 +8,19 @@ function getTimestamp() {
 function getUpgradeCost() {
     let upgradeLevel = localStorage.getItem('upgradeLevel') || 0;
     upgradeLevel = parseInt(upgradeLevel);
-    // Increase the upgradeLevel by 10% each time
-    const cost = 5 * Math.pow(2.50, upgradeLevel);
+    
+    // Увеличиваем стоимость на 2 для каждого уровня
+    const cost = 1000 * (2 ** upgradeLevel); // или 5 * Math.pow(2, upgradeLevel)
 
     return parseInt(cost);
 }
 
 function getUpgradeEnergyCost(){
     let upgradeEnergy = localStorage.getItem('upgradeEnergy') || 0;
-    console.log("Значение апгрейда из localStorage:", upgradeEnergy);
+
     upgradeEnergy = parseInt(upgradeEnergy);
-    console.log("upgradeEnergy после parseInt =", upgradeEnergy);
-
-    // if (isNaN(upgradeEnergy)) {
-    //     console.warn("upgradeEnergy не является числом, устанавливаем значение по умолчанию 0");
-    //     localStorage.setItem('upgradeEnergy', '0');
-    //     upgradeEnergy = 0;
-    //     console.log("upgradeEnergy установлен в 0");
-    //     return 0;
-    // }
-
-    const costEnergy = 5 * Math.pow(2.50, upgradeEnergy);
+ 
+    const costEnergy = 1000 * (2 ** upgradeEnergy);
 
     return parseInt(costEnergy, 10);
 }
@@ -42,6 +34,12 @@ document.getElementById("miningButton").addEventListener("click", function() {
     window.location.href = "index.html";
     
 });
+shopButton.addEventListener('click', () => {
+    window.location.href = "shop.html";
+  });
+  inventoryButton.addEventListener('click',()=>{
+    window.location.href = "inventory.html";
+  })
 function updateUpgradeView() {
     document.getElementById("currentClicks").innerText = Math.floor(parseFloat(localStorage.getItem('clickCount')));
 }
@@ -62,35 +60,44 @@ function upgradeCard(cardId) {
         // Get the upgrade cost
         const upgradeEnergyCost = getUpgradeEnergyCost();
 
-        if (currentClicks >= upgradeEnergyCost) {
+        // Check if the energy upgrade level is less than 11
+        if (energyUpgradeLevel < 10) {
+            if (currentClicks >= upgradeEnergyCost) {
 
-            // Deduct clicks
-            currentClicks -= upgradeEnergyCost;
-            localStorage.setItem('clickCount', currentClicks);
+                // Deduct clicks
+                currentClicks -= upgradeEnergyCost;
+                localStorage.setItem('clickCount', currentClicks);
 
-            // Increment energy upgrade level
-            energyUpgradeLevel++;
-            localStorage.setItem('energyUpgradeLevel', energyUpgradeLevel);
+                // Increment energy upgrade level
+                energyUpgradeLevel++;
+                localStorage.setItem('energyUpgradeLevel', energyUpgradeLevel);
 
-            // Update upgradeEnergy (you might not need this)
-            let upgradeEnergy = parseInt(localStorage.getItem('upgradeEnergy') || 0); // Get existing value
-            upgradeEnergy += 1;
-            localStorage.setItem('upgradeEnergy', upgradeEnergy);
-            console.log("После апгрейда, upgradeEnergy =", upgradeEnergy);
+                // Update upgradeEnergy (you might not need this)
+                let upgradeEnergy = parseInt(localStorage.getItem('upgradeEnergy') || 0); // Get existing value
+                upgradeEnergy += 1;
+                localStorage.setItem('upgradeEnergy', upgradeEnergy);
+                console.log("После апгрейда, upgradeEnergy =", upgradeEnergy);
 
-            // Update display for energy card
-            displayCurrentEnergyCost(getUpgradeEnergyCost());
-            displayCurrentEnergyBonus(energyUpgradeLevel + 1); // Assuming you have this function
+                // Update display for energy card
+                displayCurrentEnergyCost(getUpgradeEnergyCost());
+                displayCurrentEnergyBonus(energyUpgradeLevel + 1); // Assuming you have this function
 
-            // Display current clicks
-            updateUpgradeView();
+                // Display current clicks
+                updateUpgradeView();
 
-            console.log("Energy Card upgraded! New level: " + energyUpgradeLevel);
-            saveProgress();
+                console.log("Energy Card upgraded! New level: " + energyUpgradeLevel);
+                saveProgress();
 
+            } else {
+                alert("Not enough clicks to upgrade Energy! (Need " + upgradeEnergyCost + ")");
+            }
         } else {
-            alert("Not enough clicks to upgrade Energy! (Need " + upgradeEnergyCost + ")");
+            alert("Energy card is already at maximum level (11)!");
+             displayCurrentEnergyCost("Max"); 
+             displayCurrentEnergyBonus(energyUpgradeLevel);
         }
+    
+
     } else { // This is for the Power Click card
         // Set default value of Upgrade Level
         if (!localStorage.getItem('upgradeLevel')) {
@@ -200,7 +207,7 @@ function upgradeMaxEnergy() {
     if (clicks >= upgradeMaxEnergyCost) {
       localStorage.setItem('clickCount', clicks - upgradeMaxEnergyCost);
   
-      maxEnergy += 50; // Увеличиваем максимальную энергию (можно сделать переменную)
+      maxEnergy += 500; // Увеличиваем максимальную энергию (можно сделать переменную)
       localStorage.setItem('maxEnergy', maxEnergy.toString());
   
       // Полностью восстанавливаем энергию при улучшении
